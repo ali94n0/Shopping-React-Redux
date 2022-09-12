@@ -2,17 +2,20 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import HomePage from "./pages/HomePage";
-import CardPage from "./pages/CardPage";
+import CartPage from "./pages/CardPage";
+import CartProvider from "./providers/CartProvider";
 
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/card" element={<CardPage />} />
-        </Routes>
-      </Layout>
+      <CartProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Routes>
+        </Layout>
+      </CartProvider>
     </div>
   );
 }

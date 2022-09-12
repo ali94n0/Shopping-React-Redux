@@ -16,10 +16,10 @@ const Navigation = () => {
           </li>
           <li>
             <NavLink
-              to={"/card"}
+              to={"/cart"}
               className={(NavData) => (NavData.isActive ? "activeLink" : "")}
             >
-              Card
+              Cart
             </NavLink>
           </li>
         </ul>
