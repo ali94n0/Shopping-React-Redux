@@ -1,10 +1,15 @@
 import * as data from "../db/data";
-import { useCartAction } from "../providers/CartProvider";
+import { useCart, useCartAction } from "../providers/CartProvider";
+import { toast } from "react-toastify";
+import { checkInCart } from "../utils/checkInCart";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const dispatch = useCartAction();
+  const { cart } = useCart();
   const clickHandler = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
+    toast.success(`${product.name} added to cart`);
   };
   return (
     <main className="container">
@@ -17,12 +22,22 @@ const HomePage = () => {
             <div className="productDesc">
               <p>{product.name}</p>
               <p>$ {product.price}</p>
-              <button
+              {/* <button
                 className="btn primary"
                 onClick={() => clickHandler(product)}
               >
                 Add To Cart
-              </button>
+              </button> */}
+              {checkInCart(cart, product) ? (
+                <Link to={"/cart"}>In Cart</Link>
+              ) : (
+                <button
+                  className="btn primary"
+                  onClick={() => clickHandler(product)}
+                >
+                  Add To Cart
+                </button>
+              )}
             </div>
           </section>
         ))}

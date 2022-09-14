@@ -1,7 +1,14 @@
 import { NavLink } from "react-router-dom";
+import { useCart } from "../../providers/CartProvider";
 import "./navigation.css";
 
 const Navigation = () => {
+  const { cart } = useCart();
+  let totalQnty = 0;
+  cart.forEach((item) => {
+    totalQnty = totalQnty + item.quantity;
+  });
+
   return (
     <header>
       <nav>
@@ -21,6 +28,7 @@ const Navigation = () => {
             >
               Cart
             </NavLink>
+            {cart.length > 0 && <span>{totalQnty}</span>}
           </li>
         </ul>
         <div>Shopping Center</div>

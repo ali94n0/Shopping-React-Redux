@@ -18,7 +18,10 @@ header nav ul{
     height: 100%;
 }
 header nav ul li{
-    margin: 0px 10px;
+    margin: 0px 7px;
+    display: flex;
+    position: relative;
+
     
 }
 header nav ul li a{
@@ -32,3 +35,18 @@ header nav ul li a:hover,.activeLink {
     background-color: #7e22ce;
     color: #f8fafc;
 }
+header nav ul li span {
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    width: 20px;
+    height: 20px;
+    background-color: #db2777;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    font-size: 14px;
+  }
