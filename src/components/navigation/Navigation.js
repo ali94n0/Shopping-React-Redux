@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../providers/AuthProvider";
 import { useCart } from "../../providers/CartProvider";
 import "./navigation.css";
 
@@ -8,11 +9,13 @@ const Navigation = () => {
   cart.forEach((item) => {
     totalQnty = totalQnty + item.quantity;
   });
+  const userLogin = useAuth();
 
   return (
     <header>
       <nav>
         <ul>
+          <div className="logo">Shopping Center</div>
           <li>
             <NavLink
               to={"/"}
@@ -21,6 +24,8 @@ const Navigation = () => {
               Home
             </NavLink>
           </li>
+        </ul>
+        <ul>
           <li>
             <NavLink
               to={"/cart"}
@@ -30,8 +35,15 @@ const Navigation = () => {
             </NavLink>
             {cart.length > 0 && <span>{totalQnty}</span>}
           </li>
+          <li>
+            <NavLink
+              to={userLogin ? "/profile" : "/signin"}
+              className={(NavData) => (NavData.isActive ? "activeLink" : "")}
+            >
+              {userLogin ? "Profile" : "Login/Signin"}
+            </NavLink>
+          </li>
         </ul>
-        <div>Shopping Center</div>
       </nav>
     </header>
   );

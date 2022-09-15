@@ -43,7 +43,7 @@ body{
   background-color:#f8fafc;
   color: #7e22ce;
   border: 1px solid #7e22ce;
-  font-size:11px ;
+  font-size:14px ;
 }
 .btn{
   padding: 7px 15px;
@@ -51,6 +51,8 @@ body{
   cursor: pointer;
   margin: 0px 5px;
   border: 1px solid #7e22ce;
+  font-size: 14px;
+
 }
 .primary{
   color:#f8fafc;

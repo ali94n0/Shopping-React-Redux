@@ -84,7 +84,7 @@ th{
     border-bottom: none ;
 }
 .cartSummery a {
-width: 50%;
+width: 100%;
 margin-top:20px ;
 text-align: center;
 }
@@ -119,5 +119,5 @@ text-align: center;
     border-radius: 7px 0px 0px 7px;
     background-color:#f8fafc ;
     color: #f43f5e;
-    font-size: 10px;
+    font-size: 13px;
 }
