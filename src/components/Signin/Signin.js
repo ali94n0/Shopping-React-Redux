@@ -1,9 +1,9 @@
 import { useFormik } from "formik";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
-import { useAuthAction } from "../../providers/AuthProvider";
+import { useAuth, useAuthAction } from "../../providers/AuthProvider";
 import signinUser from "../../services/signinService";
 import Input from "../common/Input";
 import "../Signup/signup.css";
@@ -23,6 +23,12 @@ const Signin = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const setAuth = useAuthAction();
+  const auth = useAuth();
+  const [searchParams] = useSearchParams();
+  const redirect = searchParams.get("redirect") || "";
+  useEffect(() => {
+    if (auth) navigate(`/${redirect}`);
+  }, [redirect, auth]);
   const onSubmit = async (values) => {
     try {
       const { data } = await signinUser(values);
@@ -30,7 +36,7 @@ const Signin = () => {
       localStorage.setItem("authState", JSON.stringify(data));
       setError(null);
       toast.success(`welcome, ${data.name} !`);
-      navigate("/");
+      navigate(`/${redirect}`);
     } catch (error) {
       const err = error.response.data.message;
       if (error.response && err) {
@@ -60,7 +66,7 @@ const Signin = () => {
         <button type="submit" disabled={!formik.isValid}>
           submit
         </button>
-        <Link to={"/signup"}>Not Signup yet ?</Link>
+        <Link to={`/signup?redirect=${redirect}`}>Not Signup yet ?</Link>
       </form>
     </div>
   );

@@ -1,12 +1,17 @@
 import { useFormik } from "formik";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import * as Yup from "yup";
 import signupUser from "../../services/signupService";
 import Input from "../common/Input";
 import "./signup.css";
 import { toast } from "react-toastify";
-import { useState } from "react";
-import { useAuthAction } from "../../providers/AuthProvider";
+import React, { useEffect, useState } from "react";
+import { useAuth, useAuthAction } from "../../providers/AuthProvider";
 
 const initialValues = {
   name: "",
@@ -40,6 +45,14 @@ const Signup = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const setAuth = useAuthAction();
+  const auth = useAuth();
+  const [searchParams] = useSearchParams();
+  const redirect = searchParams.get("redirect") || "";
+
+  useEffect(() => {
+    if (auth) navigate(`/${redirect}`);
+  }, [redirect, auth]);
+
   const onSubmit = async (values) => {
     const { name, email, password, phoneNumber } = values;
     const userData = { name, email, password, phoneNumber };
@@ -49,7 +62,7 @@ const Signup = () => {
       localStorage.setItem("authState", JSON.stringify(data));
       setError(null);
       toast.success(`${name}, your account registered.`);
-      navigate("/");
+      navigate(`/${redirect}`);
     } catch (error) {
       const err = error.response.data.message;
       if (error.response && err) {
@@ -91,9 +104,9 @@ const Signup = () => {
           type={"password"}
         />
         <button type="submit" disabled={!formik.isValid}>
-          submit
+          Signup
         </button>
-        <Link to={"/signin"}>Already Signup ?</Link>
+        <Link to={`/signin?redirect=${redirect}`}>Already Signup ?</Link>
       </form>
     </div>
   );

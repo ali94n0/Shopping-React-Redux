@@ -80,13 +80,8 @@ const CartPage = () => {
               <p>{total} $</p>
             </div>
           </div>
-          <Link to={"/checkout"}>
-            <button
-              className="btn primary"
-              onClick={() => console.log("checkout")}
-            >
-              Check Out
-            </button>
+          <Link to={"/signup?redirect=checkout"}>
+            <button className="btn primary">Check Out</button>
           </Link>
         </section>
       </section>
