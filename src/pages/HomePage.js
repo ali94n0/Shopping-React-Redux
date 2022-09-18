@@ -1,21 +1,26 @@
-import * as data from "../db/data";
+// import * as data from "../db/data";
 import { useCart, useCartAction } from "../providers/CartProvider";
 import { toast } from "react-toastify";
 import { checkInCart } from "../utils/checkInCart";
 import { Link } from "react-router-dom";
 
+import { useProducts } from "../providers/pruductsProvider";
+import { useEffect } from "react";
+
 const HomePage = () => {
   const dispatch = useCartAction();
   const { cart } = useCart();
+  const products = useProducts();
   const clickHandler = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
     toast.success(`${product.name} added to cart`);
   };
+
   return (
     <main className="container">
       <section className="productsList">
-        {data.products.map((product) => (
-          <section key={product.id} className="product">
+        {products.map((product) => (
+          <section key={product._id} className="product">
             <div className="productImg">
               <img src={product.image} alt={product.name}></img>
             </div>

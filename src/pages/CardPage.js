@@ -2,6 +2,7 @@ import { useCart, useCartAction } from "../providers/CartProvider";
 import "./cartPage.css";
 import { BiTrash } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const CartPage = () => {
   const { cart, total } = useCart();
@@ -36,7 +37,7 @@ const CartPage = () => {
               <th>change</th>
             </tr>
             {cart.map((item) => (
-              <tr className="cartItem" key={item.id}>
+              <tr className="cartItem" key={item._id}>
                 <td>
                   <div className="itemImg">
                     <img src={item.image} alt={item.name} />

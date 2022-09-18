@@ -19,3 +19,5 @@ content-type: application/json
     "name":"wahed m",
     "phoneNumber":"09182471500"
 }
+###
+GET http://nodejs-post-app.herokuapp.com/api/product
