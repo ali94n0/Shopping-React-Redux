@@ -1,8 +1,7 @@
-import { useCart, useCartAction } from "../providers/CartProvider";
+import { useCart, useCartAction } from "../../providers/CartProvider";
 import "./cartPage.css";
 import { BiTrash } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 const CartPage = () => {
   const { cart, total } = useCart();

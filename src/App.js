@@ -2,15 +2,15 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import HomePage from "./pages/HomePage";
-import CartPage from "./pages/CardPage";
+import CartPage from "./pages/CardPage/CardPage";
 import CartProvider from "./providers/CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ChackeoutPage from "./pages/CheckoutPage";
+import ChackeoutPage from "./pages/ChackoutPage/CheckoutPage";
 import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
 import AuthProvider from "./providers/AuthProvider";
-import ProfilePage from "./pages/ProfilePage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ProductsProvider from "./providers/pruductsProvider";
 
 function App() {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../providers/AuthProvider";
-import { useCart } from "../providers/CartProvider";
+import { useAuth } from "../../providers/AuthProvider";
+import { useCart } from "../../providers/CartProvider";
 import "./checkout.css";
 
 const ChackeoutPage = () => {
@@ -48,7 +48,7 @@ const ChackeoutPage = () => {
             </section>
           </>
         ) : (
-          <Link to={"/signin"}>please login to ypur account!</Link>
+          <Link to={"/signin"}>please login to your account!</Link>
         )}
       </section>
     </main>

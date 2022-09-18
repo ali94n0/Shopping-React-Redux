@@ -12,7 +12,7 @@ const initialState = {
 const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, initialState);
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || initialState;
     dispatch({ type: "LOCAL_STORAGE", payload: savedCart });
   }, []);
   return (

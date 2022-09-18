@@ -35,6 +35,7 @@ header nav ul li a{
 display: block;
 padding: 7px 15px;
 color: #7e22ce;
+font-size: 18px;
 
 }
 header nav ul li a:hover,.activeLink {
@@ -43,10 +44,10 @@ header nav ul li a:hover,.activeLink {
 }
 header nav ul li span {
     position: absolute;
-    right: -7px;
-    top: -7px;
-    width: 20px;
-    height: 20px;
+    right: 0px;
+    top: 0px;
+    width: 16px;
+    height: 16px;
     background-color: #db2777;
     border-radius: 50%;
     color: #fff;
@@ -54,5 +55,19 @@ header nav ul li span {
     justify-content: center;
     align-items: center;
     margin-left: 15px;
-    font-size: 14px;
+    font-size: 12px;
   }
+  .reactIcon{
+    font-size: 25px;
+  }
+  .searchBox input{
+    padding: 7px 15px;
+    border: 1px solid #d8b4fe;
+    border-radius: 7px;
+    width: 16rem;
+    color: #475569;
+    margin: 0px 10px;
+}
+.searchBox input:focus{
+    border: 2px solid #a855f7;
+}

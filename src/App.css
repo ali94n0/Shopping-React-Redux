@@ -7,10 +7,11 @@ body{
   justify-content: center;
 }
 .productsList{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
-  grid-column-gap: 3rem;
-  grid-row-gap: 3rem;
+  display: flex;
+flex-wrap: wrap;
+  /* grid-template-columns: repeat(auto-fit,minmax(270px,1fr)); */
+  /* grid-column-gap: 3rem; */
+  /* grid-row-gap: 3rem; */
   max-width:1170px;
   width: 90vw;
   border-radius: 7px;
@@ -18,6 +19,8 @@ body{
 }
 
 .product{
+  width: calc(33.3% - 2rem);
+  margin: 1rem 1rem;
   display: flex;
   flex-direction: column;
   background: #fff;

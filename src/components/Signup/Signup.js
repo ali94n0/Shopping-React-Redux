@@ -67,7 +67,7 @@ const Signup = () => {
       const err = error.response.data.message;
       if (error.response && err) {
         setError(err);
-        toast.error(error);
+        toast.error(err);
       }
     }
   };
